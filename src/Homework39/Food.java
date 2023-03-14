@@ -4,7 +4,7 @@ package Homework39;
 
 + поле "название"
 + поле "калорийность"
-конструктор, геттеры, сеттеры
++ конструктор, геттеры, сеттеры
 метод "употребить еду" с каким-нибудь выводом
  */
 public class Food {
@@ -29,6 +29,11 @@ public class Food {
   }
   public  String getKcal() {
     return kcal;
+  }
+
+  public String eatFoodString() {
+    String result = String.format("%s содержит %s колорий", name, kcal.toString());
+    return result;
   }
 
 }
