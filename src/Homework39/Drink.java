@@ -10,20 +10,28 @@ package Homework39;
 а для алкогольного сначала спрашивает возраст и издаёт звук, только если возраст больше 18.
  */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Drink extends Food {
 
+  private boolean alcohol;
   private boolean soda;
-  private boolean alco;
-  private boolean age;
 
-  public Drink(String name, int kcal) {
-    super(name, kcal);
+  public Drink(String name, int kcal, boolean soda, boolean alcohol) {
+    super(name, kcal); // первая команда в конструкторе потомка - вызов конструктора родителя
+    this.alcohol = alcohol;
+    this.soda = soda;
   }
 
+  public String openString() throws IOException {
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    System.out.println("Сколько вам лет?");
+    int age = Integer.parseInt(bufferedReader.readLine());
 
-  public String openString() {
-   if (alco) {
-     if (age) {
+   if (alcohol) {
+     if (age >= 18) {
        return "Ябадабаду!!!";
      }
      else {
